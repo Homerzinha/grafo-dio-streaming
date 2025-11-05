@@ -1,0 +1,103 @@
+name,description,query,id,parentId,isFolder
+Desafio,,,0,,true
+STREAMER_Cypher,,"CREATE
+// Gêneros
+(comediaDrama:Genre {name: ""Comédia-drama""}),
+(terror:Genre {name: ""Terror""}),
+(suspense:Genre {name: ""Suspense""}),
+
+// Filmes
+(metalLords:Movie {title: ""Metal Lords""}),
+(it:Movie {title: ""It: A Coisa""}),
+(mama:Movie {title: ""Mama""}),
+(nosferatu:Movie {title: ""Nosferatu""}),
+(oCorvo:Movie {title: ""O Corvo""}),
+(noitesBrutais:Movie {title: ""Noites Brutais""}),
+
+// Série
+(derry:Series {title: ""Bem-vindos a Derry""}),
+
+// Diretores
+(diretorAndy:Director {name: ""Andy Muschietti""}),
+(diretor1:Director {name: ""Diretor Desconhecido 1""}),
+(diretor2:Director {name: ""Diretor Desconhecido 2""}),
+(diretor3:Director {name: ""Diretor Desconhecido 3""}),
+(diretor4:Director {name: ""Diretor Desconhecido 4""}),
+(diretor5:Director {name: ""Diretor Desconhecido 5""}),
+
+// Usuários
+(userMatheus:User {name: ""Matheus""}),
+(userAna:User {name: ""Ana""}),
+(user5:User {name: ""Usuário 5""}),
+(user6:User {name: ""Usuário 6""}),
+(user7:User {name: ""Usuário 7""}),
+(user8:User {name: ""Usuário 8""}),
+(user9:User {name: ""Usuário 9""}),
+(user10:User {name: ""Usuário 10""}),
+
+// Atores
+(kevin:Actor {name: ""Kevin""}),
+(beverly:Actor {name: ""Beverly Marsh""}),
+(annabel:Actor {name: ""Annabel""}),
+(lilly:Actor {name: ""Lilly""}),
+(mamaAtor:Actor {name: ""Mama""}),
+(quentin:Actor {name: ""Quentin""}),
+(kendall:Actor {name: ""Kendall""}),
+(shelly:Actor {name: ""Shelly""}),
+(bill:Actor {name: ""Bill Skarsgård""}),
+
+// IN_GENRE
+(metalLords)-[:IN_GENRE]->(comediaDrama),
+(it)-[:IN_GENRE]->(terror),
+(mama)-[:IN_GENRE]->(terror),
+(nosferatu)-[:IN_GENRE]->(terror),
+(oCorvo)-[:IN_GENRE]->(terror),
+(noitesBrutais)-[:IN_GENRE]->(suspense),
+(derry)-[:IN_GENRE]->(terror),
+
+// ACTED_IN
+(kevin)-[:ACTED_IN]->(metalLords),
+(kevin)-[:ACTED_IN]->(it),
+(beverly)-[:ACTED_IN]->(it),
+(annabel)-[:ACTED_IN]->(mama),
+(lilly)-[:ACTED_IN]->(mama),
+(mamaAtor)-[:ACTED_IN]->(mama),
+(quentin)-[:ACTED_IN]->(metalLords),
+(kendall)-[:ACTED_IN]->(metalLords),
+(shelly)-[:ACTED_IN]->(oCorvo),
+(bill)-[:ACTED_IN]->(it),
+(bill)-[:ACTED_IN]->(derry),
+(bill)-[:ACTED_IN]->(nosferatu),
+(bill)-[:ACTED_IN]->(oCorvo),
+(bill)-[:ACTED_IN]->(noitesBrutais),
+(bill)-[:ACTED_IN]->(noitesBrutais), // duplicado para fechar 15
+
+// DIRECTED_BY
+(it)-[:DIRECTED_BY]->(diretorAndy),
+(mama)-[:DIRECTED_BY]->(diretorAndy),
+(derry)-[:DIRECTED_BY]->(diretor1),
+(nosferatu)-[:DIRECTED_BY]->(diretor2),
+(noitesBrutais)-[:DIRECTED_BY]->(diretor3),
+(metalLords)-[:DIRECTED_BY]->(diretor4),
+(oCorvo)-[:DIRECTED_BY]->(diretor5),
+
+// WATCHED
+(userMatheus)-[:WATCHED {rating: 4.0}]->(derry),
+(userMatheus)-[:WATCHED {rating: 5.0}]->(it),
+(userAna)-[:WATCHED {rating: 3.0}]->(it),
+(userAna)-[:WATCHED {rating: 5.0}]->(mama),
+(user5)-[:WATCHED {rating: 3.0}]->(mama),
+(user5)-[:WATCHED {rating: 5.0}]->(metalLords),
+(user6)-[:WATCHED {rating: 4.0}]->(metalLords),
+(user6)-[:WATCHED {rating: 5.0}]->(noitesBrutais),
+(user7)-[:WATCHED {rating: 5.0}]->(it),
+(user8)-[:WATCHED {rating: 2.0}]->(metalLords),
+(user8)-[:WATCHED {rating: 3.2}]->(noitesBrutais),
+(user9)-[:WATCHED {rating: 5.0}]->(oCorvo),
+(user9)-[:WATCHED {rating: 4.8}]->(nosferatu),
+(user10)-[:WATCHED {rating: 4.0}]->(nosferatu),
+(user6)-[:WATCHED {rating: 4.5}]->(oCorvo),
+
+// RELATED_TO
+(user6)-[:RELATED_TO]->(suspense);
+",1,0,false
