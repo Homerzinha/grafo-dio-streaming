@@ -1,0 +1,98 @@
+name,description,query,id,parentId,isFolder
+dio,,,0,,true
+Untitled Cypher,,"CREATE
+// Gêneros
+(comediaDrama:Genre {name: ""Comédia-drama""}),
+(terror:Genre {name: ""Terror""}),
+(suspense:Genre {name: ""Suspense""}),
+
+// Filmes
+(metalLords:Movie {title: ""Metal Lords""}),
+(itAcoisa:Movie {title: ""It: A Coisa""}),
+(mama:Movie {title: ""Mama""}),
+(nosferatu:Movie {title: ""Nosferatu""}),
+(oCorvo:Movie {title: ""O Corvo""}),
+(noitesBrutais:Movie {title: ""Noites Brutais""}),
+
+// Série
+(bemVindosAderry:Series {title: ""Bem-vindos a Derry""}),
+
+// Diretores
+(andyMuschietti:Director {name: ""Andy Muschietti""}),
+(barbaraMuschietti:Director {name: ""Barbara Muschietti""}),
+(robertEggers:Director {name: ""Robert Eggers""}),
+(zachCregger:Director {name: ""Zach cregger""}),
+(peterSollett:Director {name: ""Peter Sollett""}),
+(rupertSanders:Director {name: ""Rupert Sanders""}),
+
+// Usuários
+(userMatheus:User {name: ""Matheus""}),
+(userAna:User {name: ""Ana""}),
+(user5:User {name: ""Usuário 5""}),
+(user6:User {name: ""Usuário 6""}),
+(user7:User {name: ""Usuário 7""}),
+(user8:User {name: ""Usuário 8""}),
+(user9:User {name: ""Usuário 9""}),
+(user10:User {name: ""Usuário 10""}),
+
+// Atores
+(jaedenMartell:Actor {name: ""Jaeden Martell""}),
+(sophiaLillis:Actor {name: ""Sophia Lillis""}),
+(jessicaChastain:Actor {name: ""Jessica Chastain""}),
+(isabelleNelisse:Actor {name: ""Isabelle Nélisse""}),
+(javierBoteti:Actor {name: ""Javier Boteti""}),
+(elliotOrr:Actor {name: ""Elliot Orr""}),
+(analesaFisher:Actor {name: ""Analesa Fisher""}),
+(fkaTwigs:Actor {name: ""FKA Twigs""}),
+(billSkarsgard:Actor {name: ""Bill Skarsgård""}),
+
+// IN_GENRE
+(metalLords)-[:IN_GENRE]->(comediaDrama),
+(itAcoisa)-[:IN_GENRE]->(terror),
+(mama)-[:IN_GENRE]->(terror),
+(nosferatu)-[:IN_GENRE]->(terror),
+(oCorvo)-[:IN_GENRE]->(terror),
+(noitesBrutais)-[:IN_GENRE]->(suspense),
+(bemVindosAderry)-[:IN_GENRE]->(terror),
+
+// ACTED_IN
+(jaedenMartell)-[:ACTED_IN {personagem:""kevin""}]->(metalLords),
+(jaedenMartell)-[:ACTED_IN {personagem:""billDenbrough""}]->(itAcoisa),
+(sophiaLillis)-[:ACTED_IN {personagem:""beverly""}]->(itAcoisa),
+(jessicaChastain)-[:ACTED_IN {personagem:""annabel""}]->(mama),
+(isabelleNelisse)-[:ACTED_IN {personagem:""lilly""}]->(mama),
+(javierBoteti)-[:ACTED_IN {personagem:""mama""}]->(mama),
+(elliotOrr)-[:ACTED_IN {personagem:""quentin""}]->(metalLords),
+(analesaFisher)-[:ACTED_IN {personagem:""kendall""}]->(metalLords),
+(fkaTwigs)-[:ACTED_IN {personagem:""shelly""}]->(oCorvo),
+(billSkarsgard)-[:ACTED_IN {personagem:""pennywise""}]->(itAcoisa),
+(billSkarsgard)-[:ACTED_IN {personagem:""pennywise""}]->(bemVindosAderry),
+(billSkarsgard)-[:ACTED_IN {personagem:""nosferatu""}]->(nosferatu),
+(billSkarsgard)-[:ACTED_IN {personagem:""eric""}]->(oCorvo),
+(billSkarsgard)-[:ACTED_IN {personagem:""keith""}]->(noitesBrutais),
+
+// DIRECTED_BY
+(itAcoisa)-[:DIRECTED_BY]->(andyMuschietti),
+(mama)-[:DIRECTED_BY]->(andyMuschietti),
+(bemVindosAderry)-[:DIRECTED_BY]->(barbaraMuschietti),
+(nosferatu)-[:DIRECTED_BY]->(robertEggers),
+(noitesBrutais)-[:DIRECTED_BY]->(zachCregger),
+(metalLords)-[:DIRECTED_BY]->(peterSollett),
+(oCorvo)-[:DIRECTED_BY]->(rupertSanders),
+
+// WATCHED
+(userMatheus)-[:WATCHED {rating: 4.0}]->(bemVindosAderry),
+(userMatheus)-[:WATCHED {rating: 5.0}]->(itAcoisa),
+(userAna)-[:WATCHED {rating: 3.0}]->(itAcoisa),
+(userAna)-[:WATCHED {rating: 5.0}]->(mama),
+(user5)-[:WATCHED {rating: 3.0}]->(mama),
+(user5)-[:WATCHED {rating: 5.0}]->(metalLords),
+(user6)-[:WATCHED {rating: 4.0}]->(metalLords),
+(user6)-[:WATCHED {rating: 5.0}]->(noitesBrutais),
+(user7)-[:WATCHED {rating: 5.0}]->(itAcoisa),
+(user8)-[:WATCHED {rating: 2.0}]->(metalLords),
+(user8)-[:WATCHED {rating: 3.2}]->(noitesBrutais),
+(user9)-[:WATCHED {rating: 5.0}]->(oCorvo),
+(user9)-[:WATCHED {rating: 4.8}]->(nosferatu),
+(user10)-[:WATCHED {rating: 4.0}]->(nosferatu),
+(user6)-[:WATCHED {rating: 4.5}]->(oCorvo);",1,0,false
